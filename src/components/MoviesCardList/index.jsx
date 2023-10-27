@@ -1,0 +1,1 @@
+export { MoviesCardList as default } from './MoviesCardList'; 

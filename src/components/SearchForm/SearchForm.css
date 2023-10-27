@@ -1,0 +1,126 @@
+.search {
+    margin: 70px 70px 0px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.search__border-bottom {
+    margin-top: 44px;
+
+}
+
+.search__form {
+    margin-bottom: 25px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.search__input {
+    padding-bottom: 20px;
+    width: 95%;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 20px;
+    border: none;
+    color: #A0A0A0;
+    background: #FFF;
+
+}
+
+.search__input:focus {
+    outline: none;
+    background-color: #F9F9F9;
+}
+
+input::-webkit-input-placeholder {
+    color: #A0A0A0;
+}
+
+input:-moz-placeholder {
+    color: #A0A0A0;
+}
+
+input::-moz-placeholder {
+    color: #A0A0A0;
+}
+
+input:-ms-input-placeholder {
+    color: #A0A0A0;
+}
+
+.search__button {
+    margin-bottom: 17px;
+    min-width: 58.65px;
+    height: 34px;
+    flex-shrink: 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 18px;
+    border: none;
+    border-radius: 48px;
+    cursor: pointer;
+    background: #3456F3;
+    color: #FFF;
+}
+
+.search__button:hover {
+    opacity: .8;
+}
+
+@media screen and (max-width: 1023px) {
+    .search {
+        margin: 80px 30px 0;
+    }
+
+    .search__form {
+        margin-bottom: 29px;
+    }
+
+    .search__input {
+        padding-bottom: 13px;
+    }
+
+    .search__button {
+        margin-bottom: 13px;
+    }
+
+    .search__border-bottom {
+        margin-top: 61px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .search {
+        margin: 84px 14px 0;
+    }
+
+    .search__form {
+        margin-bottom: 41px;
+    }
+
+    .search__label {
+        display: none;
+    }
+
+    .search__input {
+        padding: 6px 0 15px;
+        width: calc(100% - 80px);
+        line-height: 22px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .search__button {
+        margin-bottom: 9px;
+        max-width: 80px;
+    }
+
+    .search__border-bottom {
+        margin-top: 51px;
+    }
+}
