@@ -1,6 +1,6 @@
 import { Navigate, Route, createBrowserRouter } from "react-router-dom";// 
 
-import MainPage, { Root } from "@/pages";
+import MainPage, { Root } from "@/pages/index";
 import Movies from '@/pages/movies';
 import SavedMovies from '@/pages/saved-movies';
 import ProfilePage from '@/pages/profile';
