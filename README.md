@@ -17,8 +17,6 @@
 
 ##   Запуск проекта  
 
-`npx vite` 
-
 Storybook — `npm run storybook`   
 
 
