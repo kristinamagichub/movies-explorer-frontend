@@ -15,7 +15,8 @@ export default {
 const ListTemplate = {
   render: (args) => (
     <Form {...args}>
-      <h3 className="form__title">Title</h3>
+      {/* <h3 className="form__title">Title</h3> */}
+      <h3 className="form-title">Title</h3>
     </Form>
   ),
 };

@@ -3,7 +3,7 @@ import avatar from "@/assets/images/avatar.jpg";
 
 export function AboutMe() {
     return (
-        <section className="about-me">
+        <section className="about-me container">
             <h2 className="about-me__title">Студент</h2>
             <div className="about-me__container">
                 <div className="about-me__text-block">

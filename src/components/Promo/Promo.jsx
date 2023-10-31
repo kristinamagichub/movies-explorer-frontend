@@ -2,10 +2,11 @@ import './Promo.css';
 import NavTab from "../NavTab/NavTab";
 import landingLogo from "@/assets/images/landing-logo.svg";
 
-export function Promo() {
+
+export function Promo({ className }) {
     return (
         <section className="promo">
-            <div className="promo__container">
+            <div className="promo__container container">
                 <div className="promo__text-block">
                     <h1 className="promo__title">
                         Учебный проект студента факультета Веб&#8209;разработки.

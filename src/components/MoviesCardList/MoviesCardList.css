@@ -9,13 +9,11 @@
      display: grid;
      grid-template-columns: repeat(4, 1fr);
      gap: 38px 20px;
-     max-height: 1315px;
      list-style: none;
  }
 
  .cards__button-container {
-     margin-top: 51px;
-     margin-bottom: 80px;
+     margin: 60px 0 80px;
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -55,28 +53,17 @@
          margin: 70px 30px 0;
          grid-template-columns: repeat(2, 1fr);
          gap: 30px 30px;
-         max-height: 1238px;
-     }
-
-     .cards__button-container {
-         margin-top: 117px;
-         margin-bottom: 81px;
      }
  }
 
  @media screen and (max-width: 767px) {
-
      .cards__list {
          margin: 40px 10px 0px;
          grid-template-columns: repeat(1, 1fr);
-         max-height: 1307px;
+         gap: 34px;
      }
 
      .cards__button {
          width: 240px;
-     }
-
-     .cards__button-container {
-         margin: 70px 0 80px;
      }
  }

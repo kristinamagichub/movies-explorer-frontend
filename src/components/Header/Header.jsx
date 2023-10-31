@@ -1,31 +1,33 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+
 import logo from "@/assets/images/logo.svg";
 import Navigation from "@/components/Navigation";
 import HeaderAccountButton from "@/components/HeaderAccountButton";
+
 import "./Header.css";
 
 export function Header({ isLoggedIn, setIsLoggedIn, isPrimary }) {
-    const [isClicked, setIsClicked] = useState(false);
+    const [isNavOpen, setIsNavOpen] = useState(false);
 
     function toggleOpen() {
-        setIsClicked(!isClicked)
+        setIsNavOpen(!isNavOpen)
     }
 
     return (
-        <>
-            <header className={`header ${isPrimary && "header_primary"} `} id="header">
-                <Link to="/" className="form__logo">
+        <header className={`header ${isPrimary ? "header_primary" : ""} `} id="header">
+            <div className="header__container container">
+                <Link to="/" className="form-logo">
                     <img src={logo} alt="логотип сайта" />
                 </Link>
 
                 {isLoggedIn && (
-                    <div className="header__button-container">
-                        <div className="header__button-container_films">
+                    <div className="header-button-group">
+                        <div className="header-button-group__nav">
                             <NavLink
                                 to="/movies"
                                 className={({ isActive }) =>
-                                    [isActive && "header__button_active", isPrimary && "header__button_primary", "header__button"].join(" ")
+                                    [isActive ? "header__button_active" : "", isPrimary ? "header__button_primary" : "", "header__button"].join(" ")
                                 }
                             >
                                 Фильмы
@@ -33,7 +35,7 @@ export function Header({ isLoggedIn, setIsLoggedIn, isPrimary }) {
                             <NavLink
                                 to="saved-movies"
                                 className={({ isActive }) =>
-                                    [isActive && "header__button_active", isPrimary && "header__button_primary", "header__button"].join(" ")
+                                    [isActive ? "header__button_active" : "", isPrimary ? "header__button_primary" : "", "header__button"].join(" ")
                                 }
                             >
                                 Сохранённые фильмы
@@ -42,13 +44,12 @@ export function Header({ isLoggedIn, setIsLoggedIn, isPrimary }) {
                     </div>
                 )}
                 {isLoggedIn && (
-                    <div className={`header__button-container  `}   >
+                    <div className={`header-button-group`}   >
                         <HeaderAccountButton isPrimary={isPrimary} toggleOpen={toggleOpen} />
                     </div>
-
                 )}
                 {!isLoggedIn && (
-                    <div className="header__button-container" onClick={() => { setIsLoggedIn(!isLoggedIn) }}>
+                    <div className="header-button-group" onClick={() => { setIsLoggedIn(!isLoggedIn) }}>
                         <Link onClick={(e) => e.preventDefault()} to="/signup" className={`header__button header__button_reg  ${isPrimary && "header__button_primary"}`}>
                             Регистрация
                         </Link>
@@ -57,9 +58,9 @@ export function Header({ isLoggedIn, setIsLoggedIn, isPrimary }) {
                         </Link>
                     </div>
                 )}
-                {isClicked && <Navigation isPrimary={isPrimary} toggleOpen={toggleOpen} />}
-            </header>
-        </>
+                {isNavOpen && <Navigation isPrimary={isPrimary} toggleOpen={toggleOpen} />}
+            </div>
+        </header>
     )
 }
 

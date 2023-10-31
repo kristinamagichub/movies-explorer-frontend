@@ -14,11 +14,11 @@ export function Form({
     onClick
 }) {
     return (
-        <section className="form__container">
-            <Link to="/" className="form__logo">
+        <section className="form-container">
+            <Link to="/" className="form-logo">
                 <img src={logo} alt="логотип cайта" />
             </Link>
-            <h3 className="form__title">{title}</h3>
+            <h3 className="form-title">{title}</h3>
             <form action={formAction} method={formMethod} className="form" id="form" noValidate>
                 {children}
                 <button
@@ -29,9 +29,9 @@ export function Form({
                     {buttonText}
                 </button>
             </form>
-            <p className="form__text">
+            <p className="form-text">
                 {question}
-                <Link to={url} className="form__link">
+                <Link to={url} className="form-link">
                     {linkText}
                 </Link>
             </p>

@@ -1,3 +1,8 @@
+.header-account-button-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .header__menu-button {
     display: none;
     border: none;
@@ -21,6 +26,16 @@
     cursor: pointer;
     box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
     background: #FFF;
+}
+
+.header__account-button_hide-on-mobile {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .header__account-button_hide-on-mobile {
+        display: flex;
+    }
 }
 
 .header__account-button:hover {
@@ -51,11 +66,15 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .header__account-button {
-        display: none;
-    }
-
     .header__menu-button {
         display: flex;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .header__menu-button {
+        width: 40px;
+        height: 43px;
+        padding: 0 2px;
     }
 }

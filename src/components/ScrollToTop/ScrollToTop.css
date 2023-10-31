@@ -4,7 +4,7 @@
   right: calc(50% - 20px);
   width: 30px;
   border: none;
-  background: #FFF;
+  background: transparent;
   z-index: 1;
 }
 

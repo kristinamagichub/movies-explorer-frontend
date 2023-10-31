@@ -60,16 +60,16 @@ export function Root() {
 
 function MainPage() {
     return (
-        <>
-            <main>
-                <Promo />
-                <AboutProject />
-                <Techs />
-                <AboutMe />
-                <Portfolio />
-                <ScrollToTop />
-            </main>
-        </>
+
+        <main >
+            <Promo className='container' />
+            <AboutProject className='container' />
+            <Techs className='container' />
+            <AboutMe className='container' />
+            <Portfolio className='container' />
+            <ScrollToTop className='container' />
+        </main>
+
     )
 }
 

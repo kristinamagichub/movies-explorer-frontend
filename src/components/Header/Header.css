@@ -1,23 +1,26 @@
 .header {
-    padding: 0 70px;
     position: relative;
+    background: #FFF;
+}
+
+.header__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 74px;
-    background: #FFF;
+    padding-top: 18px;
+    padding-bottom: 18px;
 }
 
 .header_primary {
     background: #073042;
 }
 
-.header__button-container {
+.header-button-group {
     display: flex;
     align-items: center;
 }
 
-.header__button-container_films {
+.header-button-group__nav {
     margin-left: 63px;
     display: flex;
     gap: 16px;
@@ -52,7 +55,6 @@
     font-size: 12px;
     font-weight: 500;
     line-height: 16px;
-
 }
 
 .header__button-green {
@@ -68,18 +70,18 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .header {
-        padding: 0 30px;
+    .header__container {
+        padding: 18px 30px;
     }
 
-    .header__button-container_films {
+    .header-button-group__nav {
         display: none;
     }
 }
 
 @media screen and (max-width: 576px) {
-    .header {
-        padding: 0 14px;
+    .header__container {
+        padding: 18px 14px;
     }
 
     .header__button {
@@ -95,10 +97,8 @@
     .header__button-green {
         margin-left: 14px;
         min-width: 54px;
-        /* font-size: 10px; */
     }
 }
-
 
 
 .dev-navigation-tools {

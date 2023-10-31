@@ -91,7 +91,7 @@ export function Profile({ name, handleRegister }) {
                             {isError && (
                                 <p
                                     className="profile__button-save_error" >
-                                    При обновлении профиля произошла ошибка.
+                                    При обновлении профиля произошла ошибка
                                 </p>
                             )
                             }

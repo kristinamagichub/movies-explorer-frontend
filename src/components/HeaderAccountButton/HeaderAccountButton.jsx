@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import "./HeaderAccountButton.css";
 
-export const HeaderAccountButton = ({ toggleOpen, isPrimary, className }) => (
+export const HeaderAccountButton = ({ toggleOpen, isPrimary, className, isMobile }) => (
     <>
-        <Link to="/profile" className={`header__account-button ${className} ${isPrimary && "header__account-button_primary"}`} >
-            <span className="header__account-button-text"> Аккаунт</span>
+        <Link to="/profile" className={`header__account-button header__account-button_hide-on-mobile ${className} ${isPrimary && "header__account-button_primary"}`} >
+            <span className="header__account-button-text">Аккаунт</span>
             <div className="header__account-profile-wrapper">
 
                 <svg className="header__account-image" alt="иконка аккаунта" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -13,13 +13,13 @@ export const HeaderAccountButton = ({ toggleOpen, isPrimary, className }) => (
             </div>
         </Link>
 
-        <button onClick={toggleOpen} className={`header__menu-button ${isPrimary && "header__menu-button_primary"}  `} >
+        {!isMobile && (<button onClick={toggleOpen} className={`header__menu-button ${isPrimary && "header__menu-button_primary"}  `} >
             <svg alt="меню" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
                 <path fillRule="evenodd" clipRule="evenodd" d="M36 14L8 14V11L36 11V14Z" fill={isPrimary ? "white" : "black"} />
                 <path fillRule="evenodd" clipRule="evenodd" d="M36 24L8 24V21L36 21V24Z" fill={isPrimary ? "white" : "black"} />
                 <path fillRule="evenodd" clipRule="evenodd" d="M36 34L8 34V31L36 31V34Z" fill={isPrimary ? "white" : "black"} />
             </svg>
-        </button>
+        </button>)}
     </>
 )
 

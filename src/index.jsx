@@ -1,14 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-import {
-  RouterProvider,
-} from "react-router-dom";
+import "@/components/Layout/containers.css"
+import "./index.css";
 
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { router } from './RouteTree';
+import App from "./App";
+
+import reportWebVitals from "./reportWebVitals";
 
 // if (process.env.NODE_ENV === 'development') {
 //   const { worker } = require('./mocks/browser')
@@ -18,9 +16,8 @@ import { router } from './RouteTree';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function

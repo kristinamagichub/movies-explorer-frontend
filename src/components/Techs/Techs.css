@@ -1,11 +1,12 @@
 .techs {
-    padding: 100px 70px;
+    padding: 100px 0;
     box-sizing: border-box;
-    background-color: #F5F5F5;
 }
 
-.techs__container {
-    min-height: 415px;
+@media (min-width: 576px) {
+    .techs {
+        background-color: #F5F5F5;
+    }
 }
 
 .techs__title {
@@ -82,6 +83,7 @@
         margin-top: 23px;
         font-size: 12px;
         line-height: 18px;
+        letter-spacing: -0.48px;
     }
 
     .techs__list {
@@ -95,16 +97,13 @@
         height: 57px;
         font-size: 12px;
         line-height: 15px;
+        letter-spacing: -0.48px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .techs {
         padding: 70px 18px;
-    }
-
-    .techs__container {
-        min-height: 511px;
     }
 
     .techs__title {
@@ -117,6 +116,7 @@
         margin-top: 60px;
         font-size: 30px;
         line-height: 36px;
+        letter-spacing: -1.2px;
     }
 
     .techs__description {

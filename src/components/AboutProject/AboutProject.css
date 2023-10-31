@@ -1,12 +1,11 @@
 .about-project {
-    padding: 110px 70px;
+    padding: 110px 0;
     box-sizing: border-box;
 }
 
 .about-project__container {
     display: flex;
     flex-direction: column;
-    min-height: 388px;
 }
 
 .about-project__title {
@@ -104,10 +103,6 @@
 @media screen and (max-width: 767px) {
     .about-project {
         padding: 70px 18px;
-    }
-
-    .about-project__container {
-        min-height: 501px;
     }
 
     .about-project__title {

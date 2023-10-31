@@ -3,7 +3,7 @@ import "./FilterCheckbox.css";
 export function FilterCheckbox({ onFilter, isShortMovies }) {
     return (
         <form className="filter">
-            <span className="filter__title">Короткометражки</span>
+
 
             <input
                 className="filter__checkbox"
@@ -11,6 +11,7 @@ export function FilterCheckbox({ onFilter, isShortMovies }) {
                 onChange={onFilter}
                 checked={isShortMovies}
             ></input>
+            <span className="filter__title">Короткометражки</span>
         </form>
     );
 }

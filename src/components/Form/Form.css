@@ -1,4 +1,4 @@
-.form__container {
+.form-container {
     margin: 0 auto;
     padding: 70px 0;
     display: flex;
@@ -6,17 +6,17 @@
     max-width: 396px;
 }
 
-.form__logo {
+.form-logo {
     width: 38px;
     height: 38px;
 }
 
-.form__logo:hover {
+.form-logo:hover {
     cursor: pointer;
     opacity: 0.6;
 }
 
-.form__title {
+.form-title {
     padding: 40px 0;
     font-weight: 500;
     font-size: 24px;
@@ -64,7 +64,7 @@
     opacity: 0.6;
 }
 
-.form__text {
+.form-text {
     padding-top: 16px;
     text-align: center;
     font-weight: 400;
@@ -73,7 +73,7 @@
     color: #000;
 }
 
-.form__link {
+.form-link {
     text-decoration: none;
     font-weight: 400;
     font-size: 14px;
@@ -81,7 +81,7 @@
     color: #3456F3;
 }
 
-.form__link:hover {
+.form-link:hover {
     color: #A0A0A0;
 }
 
@@ -134,19 +134,19 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .form__container {
+    .form-container {
         padding-top: 232px;
         padding-bottom: 232px;
     }
 }
 
 @media screen and (max-width: 576px) {
-    .form__container {
+    .form-container {
         padding: 56px 30px 30px 30px;
         align-items: center;
     }
 
-    .form__title {
+    .form-title {
         margin: 0;
         padding: 50px 0 80px 0;
         text-align: center;
@@ -161,13 +161,13 @@
         line-height: 15px;
     }
 
-    .form__text {
+    .form-text {
         padding-top: 14px;
         font-size: 12px;
         line-height: 15px;
     }
 
-    .form__link {
+    .form-link {
         font-size: 12px;
         line-height: 15px;
     }

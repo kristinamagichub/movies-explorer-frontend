@@ -1,9 +1,9 @@
-.navigation__page-overlay {
+.navigation-overlay {
     display: none;
 }
 
 @media screen and (max-width: 1023px) {
-    .navigation__page-overlay {
+    .navigation-overlay {
         display: flex;
         justify-content: space-between;
         position: fixed;
@@ -12,9 +12,10 @@
         left: 0;
         background-color: rgba(0, 0, 0, 0.3);
         z-index: 5;
+        flex-direction: row-reverse;
     }
 
-    .navigation__menu {
+    .navigation-menu {
         padding: 159px 90px 90px 90px;
         position: relative;
         display: flex;
@@ -27,12 +28,7 @@
         background: #FFF;
     }
 
-    .navigation__overlay-container {
-        flex: 1 1 auto;
-
-    }
-
-    .navigation__close-button {
+    .navigation-menu__close-button {
         position: absolute;
         top: 22px;
         right: 30px;
@@ -45,18 +41,18 @@
         cursor: pointer;
     }
 
-    .navigation__close-button:hover {
+    .navigation-menu__close-button:hover {
         opacity: .6;
     }
 
-    .navigation__links {
+    .navigation-menu__links {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 22px;
     }
 
-    .navigation__link {
+    .navigation-link {
         text-decoration: none;
         font-weight: 500;
         font-size: 18px;
@@ -67,32 +63,61 @@
         color: #000;
     }
 
-    .navigation__link_active {
+    .navigation-link_active {
         border-bottom: 2px solid #000;
     }
 
-    .navigation__account-button {
+    .navigation-menu__button {
         cursor: pointer;
         box-shadow: 0px 3px 14px rgba(0, 0, 0, .08);
-
     }
 
-    .navigation__account-button:hover {
+    .navigation-menu__button:hover {
         opacity: .6;
     }
 }
 
 @media screen and (max-width: 576px) {
-    .navigation__menu {
+    .navigation-menu {
         padding: 144px 10px 46px 10px;
         width: 100%;
     }
 
-    .navigation__overlay-container {
-        display: none;
-    }
-
-    .navigation__links {
+    .navigation-menu__links {
         gap: 15px;
     }
+}
+
+.account-button {
+    padding: 3px;
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
+    background: #FFF;
+}
+
+.account-button:hover {
+    opacity: .6;
+}
+
+.account-button__text {
+    padding: 6.5px 8px;
+    color: #000;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 12px;
+}
+
+.profile-icon-wrapper {
+    width: 26px;
+    height: 26px;
+    border-radius: 100%;
+    background: #F9F9F9;
+}
+
+.profile-icon-wrapper__image {
+    margin: 7px;
 }

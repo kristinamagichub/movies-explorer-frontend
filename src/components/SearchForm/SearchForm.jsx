@@ -11,12 +11,14 @@ export function SearchForm() {
                     className="search__input"
                     id="search-input"
                     type="text"
+                    required
                     placeholder="Фильм"
-                ></input>
-
+                />
+                <span className="search__input-error">Ничего не найдено</span>
                 <button className="search__button" type="submit">
                     Найти
                 </button>
+
             </form>
             <FilterCheckbox />
 

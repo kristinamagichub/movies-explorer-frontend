@@ -69,6 +69,7 @@ export function Login({ name, handleLogin }) {
                 name="email"
                 type="email"
                 label="Email"
+                required
                 validity={{
                     isValid: false,
                     message: "Адрес электронной почты должен содержать символ '@'."

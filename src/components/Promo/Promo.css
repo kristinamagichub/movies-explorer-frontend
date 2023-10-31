@@ -1,5 +1,5 @@
 .promo {
-    padding: 75px 70px 35px;
+    padding: 75px 0 35px;
     position: relative;
     box-sizing: border-box;
     min-height: 574px;
@@ -38,7 +38,7 @@
 
 @media screen and (max-width: 1023px) {
     .promo {
-        padding: 140px 44px 76px;
+        padding: 140px 0 76px;
         min-height: 850px;
     }
 
@@ -63,15 +63,16 @@
 
 @media screen and (max-width: 767px) {
     .promo {
+        padding: 70px 0 30px;
         min-height: 637px;
-        padding: 70px 10px 30px;
     }
 
     .promo__title {
         margin-top: 44px;
         max-width: 300px;
-        font-size: 29px;
+        font-size: 30px;
         line-height: 38px;
+        letter-spacing: -1.2px;
     }
 
     .promo__description {

@@ -3,7 +3,7 @@ import arrow from "@/assets/images/arrow.svg";
 
 export function Portfolio() {
     return (
-        <section className="portfolio">
+        <section className="portfolio container" >
             <h3 className="portfolio__title">Портфолио</h3>
             <nav className="portfolio__list">
                 <a

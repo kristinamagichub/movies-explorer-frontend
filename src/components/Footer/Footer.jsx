@@ -2,7 +2,7 @@ import "./Footer.css";
 
 export function Footer() {
     return (
-        <footer className="footer">
+        <footer className="footer container">
             <h3 className="footer__title">
                 Учебный проект Яндекс.Практикум х BeatFilm.
             </h3>
