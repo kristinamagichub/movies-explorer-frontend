@@ -1,0 +1,1 @@
+export { SearchError as default } from './SearchError'; 

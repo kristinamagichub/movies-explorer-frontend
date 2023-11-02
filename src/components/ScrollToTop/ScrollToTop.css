@@ -1,0 +1,19 @@
+.scroll {
+  position: fixed;
+  bottom: 10px;
+  right: calc(50% - 20px);
+  width: 30px;
+  border: none;
+  background: transparent;
+  z-index: 1;
+}
+
+.scroll:hover {
+  cursor: pointer;
+  opacity: 0.2;
+}
+
+.scroll__image {
+  width: 30px;
+  height: 30px;
+}

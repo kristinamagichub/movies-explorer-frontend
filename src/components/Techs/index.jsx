@@ -1,0 +1,1 @@
+export { Techs as default } from './Techs'; 

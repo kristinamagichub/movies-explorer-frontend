@@ -1,0 +1,14 @@
+.card__delete-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background: #F9F9F9;
+}
+
+.card__delete-icon {
+    display: block;
+    flex-shrink: 0;
+}
