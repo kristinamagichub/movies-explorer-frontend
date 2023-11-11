@@ -50,10 +50,10 @@ export function Header({ isLoggedIn, setIsLoggedIn, isPrimary }) {
                 )}
                 {!isLoggedIn && (
                     <div className="header-button-group" onClick={() => { setIsLoggedIn(!isLoggedIn) }}>
-                        <Link onClick={(e) => e.preventDefault()} to="/signup" className={`header__button header__button_reg  ${isPrimary && "header__button_primary"}`}>
+                        <Link to="/signup" className={`header__button header__button_reg  ${isPrimary && "header__button_primary"}`}>
                             Регистрация
                         </Link>
-                        <Link onClick={(e) => e.preventDefault()} to="/signin" className={`header__button header__button-green ${isPrimary && "header__button_primary"}`} >
+                        <Link to="/signin" className={`header__button header__button-green ${isPrimary && "header__button_primary"}`} >
                             Войти
                         </Link>
                     </div>

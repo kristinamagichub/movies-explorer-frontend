@@ -15,8 +15,8 @@
 .filter__checkbox {
     position: relative;
     appearance: none;
-    width: 35px;
-    height: 15px;
+    width: 34px;
+    height: 14px;
     flex-shrink: 0;
     outline: none;
     border: none;
@@ -27,8 +27,8 @@
 
 .filter__checkbox::after {
     position: absolute;
-    height: 11px;
-    width: 11px;
+    height: 10px;
+    width: 10px;
     top: 2px;
     left: 2px;
     content: "";
@@ -44,8 +44,8 @@
 .filter__checkbox:checked::after {
     position: absolute;
     top: 2px;
-    height: 11px;
-    width: 11px;
+    height: 10px;
+    width: 10px;
     right: 2px;
     content: "";
     border-radius: 50%;

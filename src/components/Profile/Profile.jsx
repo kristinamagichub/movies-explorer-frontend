@@ -3,12 +3,15 @@ import "./Profile.css";
 import { useContext, useState } from "react";
 import { UserContext } from "@/pages";
 import useFormValidation from "@/utils/useFormValidation";
+import { CurrentUserDispatchContext } from "../../currentUserContext";
 
 export function Profile({ name, handleRegister }) {
     const { pathname } = useLocation()
     const [isDisabled, setIsDisabled] = useState(false)
     const [isError, setIsError] = useState(false)
     const { setIsLoggedIn } = useContext(UserContext)
+    const dispatch = useContext(CurrentUserDispatchContext);
+    // const { setIsLoggedIn } = useContext(currentUser)
     const navigate = useNavigate();
     const isEdit = pathname === "/profile/edit"
 
@@ -80,7 +83,8 @@ export function Profile({ name, handleRegister }) {
                             <Link to="edit" className="profile__button-edit" >
                                 Редактировать
                             </Link>
-                            <button onClick={() => { logout().then(() => { navigate("/"); }) }} type="button" className="profile__exit">
+                            {/* <button onClick={() => { logout().then(() => { navigate("/"); }) }} type="button" className="profile__exit"> */}
+                            <button onClick={() => { logout().then(() => { dispatch({ type: "loggedOut" }) }).then(() => { navigate("/"); }) }} type="button" className="profile__exit">
                                 Выйти из аккаунта
                             </button>
                         </>

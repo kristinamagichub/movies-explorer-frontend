@@ -34,6 +34,7 @@ export default function useFormValidation() {
         setIsValid(form.checkValidity())
     }
 
+    // const reset = useCallback((data = {}) => {
     function reset(data = {}) {
 
         setValues(data)

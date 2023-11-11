@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { Outlet, useLocation, Link } from 'react-router-dom';
 
 import Header from '@/components/Header';
@@ -9,6 +9,12 @@ import AboutMe from '@/components/AboutMe';
 import Portfolio from '@/components/Portfolio';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
+
+import {
+    CurrentUserContext,
+    CurrentUserDispatchContext,
+} from "../currentUserContext";
+
 
 export const UserContext = createContext(null);
 
@@ -26,31 +32,18 @@ export const UserContext = createContext(null);
 
 export function Root() {
     const { pathname } = useLocation();
-    const isTrueSet = (sessionStorage["is-authenticated"] === 'true');
-    const [isLoggedIn, setIsLoggedIn] = useState(isTrueSet);
+    const user = useContext(CurrentUserContext);
     const isPrimiaryHeader = pathname === "/";
     const isHeaderShown = pathname !== "/signin" && pathname !== "/signup";
     const isFooterShown = isHeaderShown && pathname !== "/profile";
 
-    function authorize() {
-        if (sessionStorage["is-authenticated"] === "true") {
-
-            setIsLoggedIn(true);
-
-        } else {
-            setIsLoggedIn(false);
-            // setIsCheckToken(false);
-        }
-    }
-
-    useEffect(() => {
-        // authorize();
-    }, [isLoggedIn])
+    const isLoggedIn = user.email?.length > 1;
+    console.log(isLoggedIn);
 
     return (
-        <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-            {isHeaderShown && (<Header isPrimary={isPrimiaryHeader} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />)}
-            {/*! //! Delete later */}
+        <UserContext.Provider value={{}}>
+            {isHeaderShown && (<Header isPrimary={isPrimiaryHeader} isLoggedIn={isLoggedIn} />)}
+            {/*! //!Del */}
             {/* <DevNavTools /> */}
             <Outlet />
             {isFooterShown && (<Footer />)}

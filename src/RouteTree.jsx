@@ -7,6 +7,7 @@ import ProfilePage from '@/pages/profile';
 import SigninPage from '@/pages/signin';
 import SignupPage from '@/pages/signup';
 import NotFoundPage from '@/pages/NotFound';
+import { MoviesApi } from "@/utils/MoviesApi";
 
 export const router = createBrowserRouter([
     {
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
             {
                 path: "movies",
                 element: <Movies />,
+                loader: MoviesApi
             },
             {
                 path: "saved-movies",

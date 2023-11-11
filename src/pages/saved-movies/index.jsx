@@ -9,9 +9,9 @@ import {
   SavedMoviesDispatchContext,
 } from "../../savedMoviesContext";
 
-export function SavedMovies({}) {
+export function SavedMovies({ }) {
   const movies = useContext(SavedMoviesContext);
-  console.log("m", movies);
+
   const dispatch = useContext(SavedMoviesDispatchContext);
 
   function handleDeleteSavedMovie(moviedId) {

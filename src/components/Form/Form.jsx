@@ -11,7 +11,7 @@ export function Form({
     question,
     formAction,
     formMethod,
-    onClick
+    onSubmit
 }) {
     return (
         <section className="form-container">
@@ -24,7 +24,7 @@ export function Form({
                 <button
                     type="button"
                     className="form__button-save"
-                    onClick={onClick}
+                    onClick={onSubmit}
                 >
                     {buttonText}
                 </button>
