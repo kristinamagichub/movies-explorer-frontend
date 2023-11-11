@@ -3,13 +3,14 @@ import "./Profile.css";
 import { useContext, useState } from "react";
 import { UserContext } from "@/pages";
 import useFormValidation from "@/utils/useFormValidation";
-import { CurrentUserDispatchContext } from "../../currentUserContext";
+import { CurrentUserDispatchContext, CurrentUserContext } from "../../currentUserContext";
 
 export function Profile({ name, handleRegister }) {
     const { pathname } = useLocation()
     const [isDisabled, setIsDisabled] = useState(false)
     const [isError, setIsError] = useState(false)
     const { setIsLoggedIn } = useContext(UserContext)
+    const { name: userName } = useContext(CurrentUserContext);
     const dispatch = useContext(CurrentUserDispatchContext);
     // const { setIsLoggedIn } = useContext(currentUser)
     const navigate = useNavigate();
@@ -48,7 +49,7 @@ export function Profile({ name, handleRegister }) {
     return (
         <>
             <section className="profile">
-                <h3 className="profile__title">Привет, Виталий!</h3>
+                <h3 className="profile__title">{`Привет, ${userName}`}</h3>
                 <form id="form" className="profile__form" noValidate>
                     <label className="profile__label">
                         Имя
