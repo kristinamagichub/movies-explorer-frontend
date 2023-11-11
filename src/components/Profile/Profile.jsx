@@ -49,7 +49,6 @@ export function Profile({ name, handleRegister }) {
     return (
         <>
             <section className="profile">
-                {/* <h3 className="profile__title">Привет, Виталий!</h3> */}
                 <h3 className="profile__title">{`Привет, ${userName}`}</h3>
                 <form id="form" className="profile__form" noValidate>
                     <label className="profile__label">
