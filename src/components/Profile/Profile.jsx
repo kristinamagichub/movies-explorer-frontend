@@ -12,8 +12,6 @@ export function Profile({ name, handleRegister }) {
     const { setIsLoggedIn } = useContext(UserContext)
     const { name: userName } = useContext(CurrentUserContext);
     const dispatch = useContext(CurrentUserDispatchContext);
-    // const { setIsLoggedIn } = useContext(currentUser)
-    const navigate = useNavigate();
     const isEdit = pathname === "/profile/edit"
 
     const { values, errors, isValid, isInputValid, handleChange, reset, setValue } = useFormValidation()
@@ -41,6 +39,7 @@ export function Profile({ name, handleRegister }) {
             const user = await response.json();
             if (user) {
                 setIsLoggedIn(false)
+
             }
         } catch (error) {
         }
@@ -84,10 +83,10 @@ export function Profile({ name, handleRegister }) {
                             <Link to="edit" className="profile__button-edit" >
                                 Редактировать
                             </Link>
-                            {/* <button onClick={() => { logout().then(() => { navigate("/"); }) }} type="button" className="profile__exit"> */}
-                            <button onClick={() => { logout().then(() => { dispatch({ type: "loggedOut" }) }).then(() => { navigate("/"); }) }} type="button" className="profile__exit">
+
+                            <Link to='/signout' className="profile__exit">
                                 Выйти из аккаунта
-                            </button>
+                            </Link>
                         </>
                     )
                     }

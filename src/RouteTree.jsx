@@ -8,6 +8,7 @@ import SigninPage from '@/pages/signin';
 import SignupPage from '@/pages/signup';
 import NotFoundPage from '@/pages/NotFound';
 import { MoviesApi } from "@/utils/MoviesApi";
+import Logout from "./components/Logout";
 
 export const router = createBrowserRouter([
     {
@@ -52,7 +53,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "signout",
-                element: <Navigate to="/" replace={true} />,
+                element: <Logout />,
             },
         ],
     },
