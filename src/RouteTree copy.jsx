@@ -26,16 +26,41 @@ export const router = createBrowserRouter([
                 children: [
                     {
                         path: "movies",
-                        element: < Movies />,
+                        element: < Movies
+                            element={ }  //{ProtectedPage}
+                            loggedIn={loggedIn}
+                            SavedMovies={SavedMovies}
+                            setIsError={setIsError}
+                            addMovie={handleToggelMovie}
+                            name='movies'
+                        />,
                         loader: MoviesApi
                     },
                     {
                         path: "saved-movies",
-                        element: <SavedMovies />,
+                        element: <ProtectedRoute
+                            element={SavedMovies}  //{ProtectedPage}
+                            loggedIn={loggedIn}
+                            SavedMovies={SavedMovies}
+                            setIsError={setIsError}
+                            onDelete={onDelete}
+                            name='savedmovies'
+                        />,
                     },
                     {
                         path: "profile",
-                        element: <ProfilePage />,
+                        element: <ProtectedRoute
+                            element={ProfilePage}
+                            name='profile'
+                            loggedIn={loggedIn}
+                            logOut={logOut}
+                            setIsError={setIsError}
+                            editUserData={editUserData}
+                            isSuccess={isSuccess}
+                            setSuccess={setSuccess}
+                            setIsEdit={setIsEdit}
+                            isEdit={isEdit}
+                        />,
                         children: [
                             {
                                 path: "edit",

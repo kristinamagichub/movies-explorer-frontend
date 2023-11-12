@@ -1,10 +1,22 @@
-import { Navigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { CurrentUserContext } from "../../currentUserContext";
 
-const ProtectedRoute = ({ element: Component, ...props }) => {
+export const ProtectedRoute = ({ element: Component, ...props }) => {
+  const navigate = useNavigate()
+  const user = useContext(CurrentUserContext);
+
+  const isLoggedIn = user.email?.length > 1;
+
+  useEffect(() => {
+    if (!isLoggedIn) { navigate('/'); }
+  }, []);
+
   return props.loggedIn ? (
-    <Component {...props} />
+    // <Component {...props} />
+    <Outlet />
   ) : (
-    <Navigate to="/sign-up" replace /> //to = {'/'}
+    <Navigate to="/" replace /> //signup
   );
 };
 
