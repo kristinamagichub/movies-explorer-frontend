@@ -12,11 +12,9 @@ export const ProtectedRoute = () => {
     if (!isLoggedIn) { navigate('/'); }
   }, []);
 
-  return props.loggedIn ? (
+  return isLoggedIn ? (
     <Outlet />
-  ) : (
-    <Navigate to="/" replace />
-  );
+  ) : null;
 };
 
 export default ProtectedRoute;
