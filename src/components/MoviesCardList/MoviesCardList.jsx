@@ -24,6 +24,7 @@ export function MoviesCardList({
           movie={movie}
           handleDelete={handleDelete}
           isDeleteAction={isDeleteAction}
+          trailerLink={movie.trailerLink}
         />
       ))}
     </ul>
