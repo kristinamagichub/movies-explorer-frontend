@@ -9,6 +9,7 @@ import SignupPage from '@/pages/signup';
 import NotFoundPage from '@/pages/NotFound';
 import { MoviesApi } from "@/utils/MoviesApi";
 import Logout from "./components/Logout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 export const router = createBrowserRouter([
     {
@@ -21,22 +22,27 @@ export const router = createBrowserRouter([
                 element: <MainPage />,
             },
             {
-                path: "movies",
-                element: <Movies />,
-                loader: MoviesApi
-            },
-            {
-                path: "saved-movies",
-                element: <SavedMovies />,
-            },
-            {
-                path: "profile",
-                element: <ProfilePage />,
+                element: <ProtectedRoute />,
                 children: [
                     {
-                        path: "edit",
-                        element: <ProfilePage />
-                    }
+                        path: "movies",
+                        element: < Movies />,
+                        loader: MoviesApi
+                    },
+                    {
+                        path: "saved-movies",
+                        element: <SavedMovies />,
+                    },
+                    {
+                        path: "profile",
+                        element: <ProfilePage />,
+                        children: [
+                            {
+                                path: "edit",
+                                element: <ProfilePage />
+                            }
+                        ]
+                    },
                 ]
             },
             {

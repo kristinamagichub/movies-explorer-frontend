@@ -38,7 +38,7 @@ export function Root() {
     const isFooterShown = isHeaderShown && pathname !== "/profile";
 
     const isLoggedIn = user.email?.length > 1;
-    console.log(isLoggedIn);
+
 
     return (
         <UserContext.Provider value={{}}>
