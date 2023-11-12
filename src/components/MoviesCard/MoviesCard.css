@@ -2,6 +2,7 @@
     max-width: 100%;
     list-style: none;
     border-radius: 6px;
+    text-decoration: none;
 }
 
 .card__image {

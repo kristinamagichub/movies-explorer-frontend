@@ -64,8 +64,8 @@ const getNewStruct = (arr, length) => {
 }
 
 async function addMovie(url = "", data = {}) {
-  console.log(" addlike")
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTIyZmUyYzkwZGMxMmZiMzc5MmZlZWMiLCJpYXQiOjE2OTY4NTIzMDN9.AHCOoQmNzwc8n6yqetE5oy4vm5JV5vMXZHvOe5XayoQ"
+
+  const token = localStorage.getItem('jwt');
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -84,7 +84,6 @@ export function Movies({ }) {
 
 
   function handleAddSavedMovie(id, movie) {
-    console.log(movie, "movie")
     const baseUrl = "https://api.nomoreparties.co";
     dispatch({
       type: "added",
@@ -95,22 +94,23 @@ export function Movies({ }) {
       Icon: DeleteIcon,
     });
     addMovie("http://localhost:3000/movies", {
-      "movieId": id,
-      "nameRU": movie.nameRU,
-      "nameEN": movie.nameEN,
-      "director": movie.director,
-      "country": movie.country,
-      "year": movie.year,
-      "duration": movie.duration,
-      "description": movie.description,
-      "trailerLink": movie.trailerLink,
-      "image": `${baseUrl}${movie.image.url}`,
-      "thumbnail": movie.trailerLink
+      movieId: id,
+      nameRU: movie.nameRU,
+      nameEN: movie.nameEN,
+      director: movie.director,
+      country: movie.country,
+      year: movie.year,
+      duration: movie.duration,
+      description: movie.description,
+      trailerLink: movie.trailerLink,
+      image: `${baseUrl}${movie.image.url}`,
+      thumbnail: movie.trailerLink
     }).then((data) => {
       console.log(data);
     });
-
   }
+
+
 
   function handleDeleteSavedMovie(moviedId) {
     dispatch({

@@ -25,3 +25,7 @@ export function SigninPage() {
 }
 
 export default SigninPage;
+
+// const search = JSON.parse(localStorage.jwt);
+// localStorage.setItem('jwt', res.token)
+// return res.token;         .then((res) => localStorage.setItem('jwt', res.token))
