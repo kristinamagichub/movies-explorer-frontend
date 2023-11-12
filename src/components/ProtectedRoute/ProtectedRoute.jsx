@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { CurrentUserContext } from "../../currentUserContext";
 
-export const ProtectedRoute = ({ element: Component, ...props }) => {
+export const ProtectedRoute = () => {
   const navigate = useNavigate()
   const user = useContext(CurrentUserContext);
 
@@ -13,10 +13,9 @@ export const ProtectedRoute = ({ element: Component, ...props }) => {
   }, []);
 
   return props.loggedIn ? (
-    // <Component {...props} />
     <Outlet />
   ) : (
-    <Navigate to="/" replace /> //signup
+    <Navigate to="/" replace />
   );
 };
 
