@@ -2,6 +2,7 @@ import "./MoviesCard.css";
 
 export function MovieCard({
   id,
+  movie,
   title,
   time,
   cardImgUrl,
@@ -20,7 +21,7 @@ export function MovieCard({
           <button
             type="button"
             onClick={() => {
-              isDeleteAction ? handleDelete(id) : handleAdd(id);
+              isDeleteAction ? handleDelete(id) : handleAdd(id, movie);
             }}
             className="card__delete-button"
           >
