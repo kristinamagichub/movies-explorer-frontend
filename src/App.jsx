@@ -78,10 +78,6 @@ function App() {
 
       </CurrentUserDispatchContext.Provider>
     </CurrentUserContext.Provider>
-
-
-
-
   );
 }
 

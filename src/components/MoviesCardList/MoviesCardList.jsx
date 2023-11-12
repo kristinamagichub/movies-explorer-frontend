@@ -11,16 +11,17 @@ export function MoviesCardList({
 }) {
   return (
     <ul className="cards__list">
-      {listArr.map(({ id, title, time, cardImgUrl, Icon, iconProps }) => (
+      {listArr.map((movie) => (
         <MoviesCard
-          key={id}
-          id={id}
-          title={title}
-          time={time}
-          cardImgUrl={cardImgUrl}
-          Icon={Icon}
-          iconProps={iconProps}
+          key={movie.id}
+          id={movie.id}
+          title={movie.title}
+          time={movie.time}
+          cardImgUrl={movie.cardImgUrl}
+          Icon={movie.Icon}
+          iconProps={movie.iconProps}
           handleAdd={handleAdd}
+          movie={movie}
           handleDelete={handleDelete}
           isDeleteAction={isDeleteAction}
         />

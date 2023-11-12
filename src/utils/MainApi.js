@@ -42,9 +42,7 @@ class MainApiConstruct {
 
     getUserData(token) {
         return this._request(`/users/me`, {
-
             headers: {
-
                 'Authorization': `Bearer ${token}`
             }
         })
