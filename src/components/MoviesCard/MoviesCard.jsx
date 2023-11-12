@@ -14,9 +14,6 @@ export function MovieCard({
   iconProps,
   trailerLink
 }) {
-  // const openTrailer= () => {
-
-
   return (
     <Link target="_blank" to={trailerLink} className="card card_container">
       <img src={cardImgUrl} className="card__image" alt="картинка фильма" />
