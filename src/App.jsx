@@ -1,4 +1,4 @@
-import { useReducer, useState } from "react";
+import { useCallback, useEffect, useReducer, useState } from "react";
 import { RouterProvider } from "react-router-dom";
 
 import { router } from "./RouteTree";
@@ -15,6 +15,7 @@ import {
 
 
 import "./App.css";
+import MainApi from "./utils/MainApi";
 
 //import { DeleteIcon } from "./components/Icons";
 
@@ -46,11 +47,14 @@ function currentUserReducer(user, action) {
       return {
         name: action.name,
         email: action.email,
-        _id: action._id
+        _id: action._id,
+        isLoggedIn: true,
       };
     }
     case "loggedOut": {
-      return {};
+      return {
+        isLoggedIn: false,
+      };
     }
     default: {
       throw Error("Unknown action: " + action.type);
@@ -58,11 +62,57 @@ function currentUserReducer(user, action) {
   }
 }
 
+// const [loggedIn, setLoggedIn] = useState(false)
 
+// useEffect(() => {
+// if (localStorage.jwt) {
+//   Promise.all([MainApi.getUserData(localStorage.jwt), MainApi.getMovies(localStorage.jwt)])
+//     .then(([userData, dataMovies]) => {
+//       setSavedMovies(dataMovies.reserse())
+
+//     }).catch((err) => {
+//       console.error(`Ошибка при загрузке начальных данных ${err}`)
+//       setIsCheckToken(false)
+//       localStorage.clear()
+//     })
+// } else {
+//   setLoggedIn(false)
+//   setIsCheckToken(false)
+//   localStorage.clear()
+// }
+// }, [LoggedIn])
+
+// const setSuccess = useCallback(() => {
+//   setIsSuccess(false)
+// }, []);
+
+const getUserData = async (token) => {
+  try {
+    const baseUrl = 'http://localhost:3000';
+    const response = await fetch(`${baseUrl}/users/me`, {
+      method: "GET",
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    const user = await response.json();
+    return user;
+  } catch (error) { }
+}
 
 function App() {
   const [savedMovies, dispatch] = useReducer(savedMoviesReducer, []);
   const [currentUser, dispatchUser] = useReducer(currentUserReducer, {});
+
+  useEffect(() => {
+    if (localStorage.jwt) {
+      getUserData(localStorage.jwt).then((res) => {
+        dispatchUser({ type: "loggedIn", _id: res._id, name: res.name, email: res.email });
+      })
+    } else {
+      dispatchUser({ type: "loggedOut" });
+    }
+  }, [])
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

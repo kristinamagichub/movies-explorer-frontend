@@ -5,12 +5,12 @@ import {
     CurrentUserDispatchContext,
 } from "../../currentUserContext";
 
-
 export function Logout({ }) {
     const dispatch = useContext(CurrentUserDispatchContext);
     const navigate = useNavigate()
 
     useEffect(() => {
+        window.localStorage.removeItem('jwt');
         dispatch({ type: "loggedOut" });
         navigate('/');
     }, [])

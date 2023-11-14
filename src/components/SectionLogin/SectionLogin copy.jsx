@@ -18,9 +18,8 @@ export default function SectionLogin({ name, isValid, onSubmit, setIsError, chil
             {name === 'signin' ? <p className='login__text'>Еще не зарегистрированы? <Link to={'/signup'} className='login__link'>Регистрация</Link> </p>
                 : name === 'signup' ?
                     <p className='login__text'>Уже зарегистрированы?<Link to={'/signin'} className='login__link'>Войти</Link></p>
-                    : <Link to={'/'}>Выйти из аккаунта</Link>
+                    : <Link to={'/signout'}>Выйти из аккаунта</Link>
             }
-        </section >
+        </section>
     )
 }
-

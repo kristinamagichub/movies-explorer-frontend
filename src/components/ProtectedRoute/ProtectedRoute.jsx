@@ -6,7 +6,7 @@ export const ProtectedRoute = () => {
   const navigate = useNavigate()
   const user = useContext(CurrentUserContext);
 
-  const isLoggedIn = user.email?.length > 1;
+  const { isLoggedIn } = user;
 
   useEffect(() => {
     if (!isLoggedIn) { navigate('/'); }

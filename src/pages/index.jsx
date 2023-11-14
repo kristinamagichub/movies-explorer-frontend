@@ -33,12 +33,10 @@ export const UserContext = createContext(null);
 export function Root() {
     const { pathname } = useLocation();
     const user = useContext(CurrentUserContext);
+    const { isLoggedIn } = user;
     const isPrimiaryHeader = pathname === "/";
     const isHeaderShown = pathname !== "/signin" && pathname !== "/signup";
     const isFooterShown = isHeaderShown && pathname !== "/profile";
-
-    const isLoggedIn = user.email?.length > 1;
-
 
     return (
         <UserContext.Provider value={{}}>
@@ -53,7 +51,6 @@ export function Root() {
 
 function MainPage() {
     return (
-
         <main >
             <Promo className='container' />
             <AboutProject className='container' />
