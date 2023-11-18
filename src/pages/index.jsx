@@ -12,18 +12,6 @@ import ScrollToTop from '@/components/ScrollToTop';
 
 export const UserContext = createContext(null);
 
-// export const DevNavTools = () => (
-//     <nav className="dev-navigation-tools">
-//         <Link to='/'>main</Link>
-//         <Link to='/signup'>signup</Link>
-//         <Link to='/signin'>signin</Link>
-//         <Link to='*'>NotFoundPage</Link>
-//         <Link to='/profile'>ProfilePage</Link>
-//         <Link to='/movies'>Movies</Link>
-//         <Link to='/saved-movies'>SavedMovies</Link>
-//     </nav>
-// )
-
 export function Root() {
     const { pathname } = useLocation();
     const isTrueSet = (sessionStorage["is-authenticated"] === 'true');
@@ -39,19 +27,18 @@ export function Root() {
 
         } else {
             setIsLoggedIn(false);
-            // setIsCheckToken(false);
+
         }
     }
 
     useEffect(() => {
-        // authorize();
+
     }, [isLoggedIn])
 
     return (
         <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
             {isHeaderShown && (<Header isPrimary={isPrimiaryHeader} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />)}
-            {/*! //! Delete later */}
-            {/* <DevNavTools /> */}
+
             <Outlet />
             {isFooterShown && (<Footer />)}
         </UserContext.Provider>

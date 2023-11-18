@@ -13,7 +13,6 @@ export function Input({
                 placeholder={placeholder}
                 required
                 value={value}
-                // error={errors.email}
                 onChange={onChange}
                 minLength={minLength}
             />

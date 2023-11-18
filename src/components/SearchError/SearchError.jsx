@@ -1,3 +1,12 @@
-export function SearchError() { }
+import React from "react"
+import "./SearchError.css"
 
-export default SearchError;
+function SearchError({ errorText }) {
+  return (
+    <div className="search">
+      <p className="search__error search__error_center">{errorText}</p>
+    </div>
+  )
+}
+
+export default SearchError

@@ -3,40 +3,51 @@ import "./Form.css";
 import logo from "@/assets/images/logo.svg";
 
 export function Form({
-    children,
-    linkText,
-    url,
-    title,
-    buttonText,
-    question,
-    formAction,
-    formMethod,
-    onClick
+  linkText,
+  link,
+  children,
+  title,
+  buttonText,
+  question,
+  onSubmit,
+  isDisabled,
+  isLoading,
 }) {
-    return (
-        <section className="form-container">
-            <Link to="/" className="form-logo">
-                <img src={logo} alt="логотип cайта" />
-            </Link>
-            <h3 className="form-title">{title}</h3>
-            <form action={formAction} method={formMethod} className="form" id="form" noValidate>
-                {children}
-                <button
-                    type="button"
-                    className="form__button-save"
-                    onClick={onClick}
-                >
-                    {buttonText}
-                </button>
-            </form>
-            <p className="form-text">
-                {question}
-                <Link to={url} className="form-link">
-                    {linkText}
-                </Link>
-            </p>
-        </section>
-    )
+  return (
+    <section className="form-container">
+      <Link to="/" className="form-logo">
+        <img src={logo} alt="логотип cайта" />
+      </Link>
+      <h3 className="form-title">{title}</h3>
+      <form
+       
+        className="form"
+        id="form"
+        onSubmit={onSubmit}
+        noValidate
+      >
+        {children}
+
+        <button
+          className={
+            isDisabled || isLoading
+              ? "form__button-save form__button-save_inactive"
+              : "form__button-save"
+          }
+          type="submit"
+          disabled={isDisabled ? true : false}
+        >
+          {buttonText}
+        </button>
+      </form>
+      <p className="form-text">
+        {question}
+        <Link to={link} className="form-link">
+          {linkText}
+        </Link>
+      </p>
+    </section>
+  );
 }
 
 export default Form;
