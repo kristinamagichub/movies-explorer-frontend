@@ -1,67 +1,80 @@
-import { useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
-import logo from "@/assets/images/logo.svg";
-import Navigation from "@/components/Navigation";
-import HeaderAccountButton from "@/components/HeaderAccountButton";
+import Navigation from "../Navigation/Navigation";
+
+import logo from "../../assets/images/logo.svg";
+import account from "../../assets/images/account_check_icon.svg";
+import menu from "../../assets/images/menu-button.svg";
 
 import "./Header.css";
 
-export function Header({ isLoggedIn, setIsLoggedIn, isPrimary }) {
-    const [isNavOpen, setIsNavOpen] = useState(false);
+export function Header({ loggedIn }) {
+  const [isClicked, setIsClicked] = React.useState(false);
 
-    function toggleOpen() {
-        setIsNavOpen(!isNavOpen)
-    }
+  // Changing the active button
+  const setActiveButton = ({ isActive }) =>
+    isActive ? "header__button_active" : "header__button";
 
-    return (
-        <header className={`header ${isPrimary ? "header_primary" : ""} `} id="header">
-            <div className="header__container container">
-                <Link to="/" className="form-logo">
-                    <img src={logo} alt="логотип сайта" />
-                </Link>
+  // Menu opening
+  function handleOpen() {
+    setIsClicked(true);
+  }
 
-                {isLoggedIn && (
-                    <div className="header-button-group">
-                        <div className="header-button-group__nav">
-                            <NavLink
-                                to="/movies"
-                                className={({ isActive }) =>
-                                    [isActive ? "header__button_active" : "", isPrimary ? "header__button_primary" : "", "header__button"].join(" ")
-                                }
-                            >
-                                Фильмы
-                            </NavLink>
-                            <NavLink
-                                to="saved-movies"
-                                className={({ isActive }) =>
-                                    [isActive ? "header__button_active" : "", isPrimary ? "header__button_primary" : "", "header__button"].join(" ")
-                                }
-                            >
-                                Сохранённые фильмы
-                            </NavLink>
-                        </div>
-                    </div>
-                )}
-                {isLoggedIn && (
-                    <div className={`header-button-group`}   >
-                        <HeaderAccountButton isPrimary={isPrimary} toggleOpen={toggleOpen} />
-                    </div>
-                )}
-                {!isLoggedIn && (
-                    <div className="header-button-group" onClick={() => { setIsLoggedIn(!isLoggedIn) }}>
-                        <Link onClick={(e) => e.preventDefault()} to="/signup" className={`header__button header__button_reg  ${isPrimary && "header__button_primary"}`}>
-                            Регистрация
-                        </Link>
-                        <Link onClick={(e) => e.preventDefault()} to="/signin" className={`header__button header__button-green ${isPrimary && "header__button_primary"}`} >
-                            Войти
-                        </Link>
-                    </div>
-                )}
-                {isNavOpen && <Navigation isPrimary={isPrimary} toggleOpen={toggleOpen} />}
-            </div>
+  // Menu closing
+  function handleClose() {
+    setIsClicked(false);
+  }
+
+  return (
+    <>
+      {!loggedIn ? (
+        <header className="header" id="header">
+          <Link to="/" className="header__logo">
+            <img src={logo} alt="logo" />
+          </Link>
+          <div className="header__button-wrapper">
+            <Link to="/signup" className="header__button header__button-shadow">
+              Регистрация
+            </Link>
+            <Link to="/signin" className="header__button header__button-green">
+              Войти
+            </Link>
+          </div>
         </header>
-    )
+      ) : (
+        <header className="header header_secondary" id="header-gray">
+          <Link to="/" className="header__logo">
+            <img src={logo} alt="logo" />
+          </Link>
+          <div className="header__button-wrapper header__button-wrapper_films">
+            <NavLink to="/movies" className={setActiveButton}>
+              Фильмы
+            </NavLink>
+            <NavLink to="/saved-movies" className={setActiveButton}>
+              Сохранённые фильмы
+            </NavLink>
+          </div>
+          <div className="header__button-wrapper">
+            <Link to="/profile" className="header__account-button">
+              <div className="header__account-image-wrapper">
+                <span className="header__account-text">Аккаунт</span>
+                <img
+                  className="header__account-image"
+                  src={account}
+                  alt="account pic"
+                />
+              </div>
+            </Link>
+            <button className="header__menu-button" onClick={handleOpen}>
+              <img src={menu} alt="menu" />
+            </button>
+          </div>
+          {isClicked ? <Navigation handleClose={handleClose} /> : ""}
+        </header>
+      )}
+    </>
+  );
 }
 
 export default Header;

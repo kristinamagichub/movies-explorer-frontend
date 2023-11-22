@@ -1,3 +1,20 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  min-height: 100vh;
+  color: #000;
+}
+
+.page {
+  margin: 0 auto;
+  min-height: 100vh;
+  max-width: 1280px;
+  min-width: 320px;
+  width: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -1,65 +1,81 @@
-import "../Form/Form.css"
-import Form from "../Form/Form"
-import useFormValidation from "@/utils/useFormValidation"
+import Form from "@/components/Form/Form";
+import { EMAIL_PATTERN } from "@/utils/constants";
+import useForm from "@/hooks/useForm";
 
-export function Register({ name, onRegister }) {
-    const { values, isValid, errors, isInputValid, handleChange } = useFormValidation()
+import "@/components/Form/Form.css";
 
-    function onSubmit(evt) {
-        evt.preventDefault()
-        onRegister(values.password, values.email)
-    }
-    return (
+function Register({ isLoading, onRegister }) {
+  const { enteredValues, isErrors, handleChangeInput, isFormValid } = useForm();
 
-        <Form
-            title="Добро пожаловать!"
-            buttonText="Зарегистрироваться"
-            question="Уже зарегистрированы?"
-            linkText=" Войти"
-            url="/signin"
-        >
-            <label className="form__label">
-                Имя
-                <input
-                    name="name"
-                    className="form__input"
-                    id="name-input"
-                    type="text"
-                    minLength="2"
-                    maxLength="40"
-                    required
-                    placeholder="Введите имя"
-                />
-                <span className="form__input-error">Заполните поле</span>
-            </label>
-            <label className="form__label">
-                E-mail
-                <input
-                    name="email"
-                    className="form__input"
-                    id="email-input"
-                    type="email"
-                    required
-                    placeholder="Введите электронную почту"
-                />
-                <span className="form__input-error">Адрес электронной почты должен содержать символ "@".</span>
-            </label>
+  function getSubmitUserInfo(event) {
+    event.preventDefault();
+    onRegister({
+      name: enteredValues.name,
+      email: enteredValues.email,
+      password: enteredValues.password,
+    });
+  }
+  return (
+    <Form
+      title="Добро пожаловать!"
+      buttonText="Зарегистрироваться"
+      question="Уже зарегистрированы?"
+      linkText="Войти"
+      link="/signin"
+      onSubmit={getSubmitUserInfo}
+      isDisabled={!isFormValid}
+      isLoading={isLoading}
+    >
+      <label className="form__label">
+        Имя
+        <input
+          name="name"
+          className="form__input"
+          id="name-input"
+          type="text"
+          minLength="2"
+          maxLength="40"
+          required
+          placeholder="Введите имя"
+          onChange={handleChangeInput}
+          value={enteredValues.name || ""}
+        />
+        <span className="form__input-error">{isErrors.name}</span>
+      </label>
+      <label className="form__label">
+        E-mail
+        <input
+          name="email"
+          className="form__input"
+          id="email-input"
+          type="email"
+          required
+          placeholder="Введите электронную почту"
+          onChange={handleChangeInput}
+          pattern={EMAIL_PATTERN}
+          value={enteredValues.email || ""}
+        />
+        <span className="form__input-error">{isErrors.email}</span>
+      </label>
 
-            <label className="form__label">
-                Пароль
-                <input
-                    name="password"
-                    className="form__input"
-                    id="password-input"
-                    type="password"
-                    required
-                    placeholder="Введите пароль"
-                />
-                <span className="form__input-error">Заполните поле</span>
-            </label>
-        </Form>
-
-    )
+      <label className="form__label">
+        Пароль
+        <input
+          name="password"
+          className="form__input"
+          id="password-input"
+          type="password"
+          required
+          placeholder="Введите пароль"
+          onChange={handleChangeInput}
+          value={enteredValues.password || ""}
+          minLength="6"
+          maxLength="12"
+        />
+        <span className="form__input-error">{isErrors.password}</span>
+      </label>
+    </Form>
+  );
 }
 
-export default Register
+export default Register;

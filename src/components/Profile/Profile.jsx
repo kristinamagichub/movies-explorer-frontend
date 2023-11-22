@@ -1,117 +1,106 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useContext, useState } from "react";
+
+import CurrentUserContext from "@/components/CurrentUserContext/CurrentUserContext";
+import Header from "@/components/Header/Header";
+import useForm from "@/hooks/useForm";
+import { EMAIL_PATTERN } from "@/utils/constants";
+
 import "./Profile.css";
-import { useContext, useState } from "react";
-import { UserContext } from "@/pages";
-import useFormValidation from "@/utils/useFormValidation";
 
-export function Profile({ name, handleRegister }) {
-    const { pathname } = useLocation()
-    const [isDisabled, setIsDisabled] = useState(false)
-    const [isError, setIsError] = useState(false)
-    const { setIsLoggedIn } = useContext(UserContext)
-    const navigate = useNavigate();
-    const isEdit = pathname === "/profile/edit"
+export function Profile({ loggedIn, signOut, onUpdateUser, isLoading }) {
+  const currentUser = useContext(CurrentUserContext);
+  const { enteredValues, isErrors, handleChangeInput, isFormValid, resetForm } =
+    useForm();
+  const [isLastData, setIsLastData] = useState(false);
 
-    const { values, errors, isValid, isInputValid, handleChange, reset, setValue } = useFormValidation()
+  function getSubmitUserInfo(event) {
+    event.preventDefault();
+    onUpdateUser({
+      name: enteredValues.name,
+      email: enteredValues.email,
+    });
+  }
 
-    function onRegister(evt) {
-        evt.preventDefault()
-        handleRegister(values.password, values.email)
+  useEffect(() => {
+    if (
+      currentUser.name === enteredValues.name &&
+      currentUser.email === enteredValues.email
+    ) {
+      setIsLastData(true);
+    } else {
+      setIsLastData(false);
     }
+  }, [enteredValues]);
 
-    const saveData = async () => {
-        try {
-            setIsError(false);
-            setIsDisabled(false);
-            const response = await fetch("/save-profile", { method: "POST" });
-            const movies = await response.json();
-        } catch (error) {
-            setIsError(true);
-            setIsDisabled(true);
-        }
+  useEffect(() => {
+    if (currentUser) {
+      resetForm(currentUser);
     }
+  }, [currentUser, resetForm]);
 
-    const logout = async () => {
-        try {
-            const response = await fetch("/logout", { method: "GET" });
-            const user = await response.json();
-            if (user) {
-                setIsLoggedIn(false)
+  return (
+    <>
+      <Header loggedIn={loggedIn} />
+      <section className="profile">
+        <h3 className="profile__title">Привет, {currentUser.name}!</h3>
+        <form
+          id="form"
+          className="profile__form"
+          onSubmit={getSubmitUserInfo}
+          noValidate
+        >
+          <label className="profile__label">
+            Имя
+            <input
+              name="name"
+              className="profile__input"
+              id="name-input"
+              type="text"
+              minLength="2"
+              maxLength="40"
+              required
+              placeholder="Введите имя"
+              onChange={handleChangeInput}
+              value={enteredValues.name || ""}
+            />
+            <span className="profile__input-error">{isErrors.name}</span>
+          </label>
+
+          <div className="profile__border"></div>
+          <label className="profile__label">
+            E-mail
+            <input
+              name="email"
+              className="profile__input"
+              id="email-input"
+              type="email"
+              required
+              placeholder="Введите электронную почту"
+              pattern={EMAIL_PATTERN}
+              value={enteredValues.email || ""}
+              onChange={handleChangeInput}
+            />
+            <span className="profile__input-error">{isErrors.email}</span>
+          </label>
+
+          <button
+            type="submit"
+            disabled={!isFormValid ? true : false}
+            className={
+              !isFormValid || isLoading || isLastData
+                ? "profile__button-edit profile__button-edit_inactive"
+                : "profile__button-edit"
             }
-        } catch (error) {
-        }
-    }
-
-    return (
-        <>
-            <section className="profile">
-                <h3 className="profile__title">Привет, Виталий!</h3>
-                <form id="form" className="profile__form" noValidate>
-                    <label className="profile__label">
-                        Имя
-                        <input
-                            name="name"
-                            className="profile__input"
-                            id="name-input"
-                            type="text"
-                            minLength="2"
-                            maxLength="40"
-                            required
-                            placeholder="Введите имя"
-                        />
-                        <span className="profile__input-error"></span>
-                    </label>
-
-                    <div className="profile__border"></div>
-                    <label className="profile__label">
-                        E-mail
-                        <input
-                            name="email"
-                            className="profile__input"
-                            id="email-input"
-                            type="email"
-                            required
-                            placeholder="Введите электронную почту"
-                        />
-                        <span className="profile__input-error"></span>
-                    </label>
-                    {!isEdit && (
-                        <>
-                            <Link to="edit" className="profile__button-edit" >
-                                Редактировать
-                            </Link>
-                            <button onClick={() => { logout().then(() => { navigate("/"); }) }} type="button" className="profile__exit">
-                                Выйти из аккаунта
-                            </button>
-                        </>
-                    )
-                    }
-                    {isEdit && (
-                        <>
-                            {isError && (
-                                <p
-                                    className="profile__button-save_error" >
-                                    При обновлении профиля произошла ошибка
-                                </p>
-                            )
-                            }
-
-                            <button
-                                onClick={saveData}
-                                type="button"
-                                disabled={isDisabled}
-                                className="profile__button-save" >
-                                Сохранить
-                            </button>
-
-                        </>
-                    )
-                    }
-
-                </form>
-            </section>
-        </>
-    );
+          >
+            {!isFormValid ? "Редактировать" : "Сохранить"}
+          </button>
+          <button type="button" className="profile__exit" onClick={signOut}>
+            Выйти из аккаунта
+          </button>
+        </form>
+      </section>
+    </>
+  );
 }
 
 export default Profile;
