@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -7,31 +7,33 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: '@/components',
-        replacement: '/src/components',
-      },
-      // "@assets": path.resolve(__dirname, "src/assets"),
-
-      {
-        find: '@/assets',
-        replacement: '/src/assets',
+        find: "@/components",
+        replacement: "/src/components",
       },
       {
-        find: '@/pages',
-        replacement: '/src/pages',
+        find: "@/assets",
+        replacement: "/src/assets",
       },
       {
-        find: '@/utils',
-        replacement: '/src/utils',
+        find: "@/pages",
+        replacement: "/src/pages",
+      },
+      {
+        find: "@/utils",
+        replacement: "/src/utils",
+      },
+      {
+        find: "@/hooks",
+        replacement: "/src/hooks",
       },
     ],
   },
   optimizeDeps: {
     esbuildOptions: {
-      target: 'esnext',
+      target: "esnext",
     },
   },
   build: {
-    target: 'es2022',
+    target: "es2022",
   },
 });

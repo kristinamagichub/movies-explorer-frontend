@@ -1,5 +1,5 @@
-import "./ScrollToTop.css"
-import arrow from "../../assets/images/up-arrow.svg" //TODO:rewrite import
+import "./ScrollToTop.css";
+import arrow from "../../assets/images/up-arrow.svg"; //TODO:rewrite import
 
 function toTop() {
   window.scrollTo({
@@ -11,10 +11,10 @@ function toTop() {
 
 export function ScrollToTop() {
   return (
-    <button onClick={toTop} className="scroll" type="button" >
+    <button onClick={toTop} className="scroll" type="button">
       <img src={arrow} alt="логотип" className="scroll__image" />
     </button>
-  )
+  );
 }
 
-export default ScrollToTop
+export default ScrollToTop;

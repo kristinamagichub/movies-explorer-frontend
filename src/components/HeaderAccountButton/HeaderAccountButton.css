@@ -1,80 +1,80 @@
 .header-account-button-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .header__menu-button {
-    display: none;
-    border: none;
-    width: 44px;
-    height: 44px;
-    cursor: pointer;
-    background-color: transparent;
-    color: #073042;
+  display: none;
+  border: none;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #073042;
 }
 
 .header__menu-button:hover {
-    opacity: .6;
+  opacity: 0.6;
 }
 
 .header__account-button {
-    padding: 3px;
-    display: flex;
-    flex-direction: row;
-    text-decoration: none;
-    border-radius: 40px;
-    cursor: pointer;
-    box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
-    background: #FFF;
+  padding: 3px;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
+  background: #fff;
 }
 
 .header__account-button_hide-on-mobile {
-    display: none;
+  display: none;
 }
 
 @media (min-width: 1024px) {
-    .header__account-button_hide-on-mobile {
-        display: flex;
-    }
+  .header__account-button_hide-on-mobile {
+    display: flex;
+  }
 }
 
 .header__account-button:hover {
-    opacity: .6;
+  opacity: 0.6;
 }
 
 .header__account-button_primary {
-    background: #2BE080;
+  background: #2be080;
 }
 
 .header__account-button-text {
-    padding: 6.5px 8px;
-    color: #000;
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 12px;
+  padding: 6.5px 8px;
+  color: #000;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 12px;
 }
 
 .header__account-profile-wrapper {
-    width: 26px;
-    height: 26px;
-    border-radius: 100%;
-    background: #F9F9F9;
+  width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  background: #f9f9f9;
 }
 
 .header__account-image {
-    margin: 7px;
+  margin: 7px;
 }
 
 @media screen and (max-width: 1023px) {
-    .header__menu-button {
-        display: flex;
-    }
+  .header__menu-button {
+    display: flex;
+  }
 }
 
 @media screen and (max-width: 576px) {
-    .header__menu-button {
-        width: 40px;
-        height: 43px;
-        padding: 0 2px;
-    }
+  .header__menu-button {
+    width: 40px;
+    height: 43px;
+    padding: 0 2px;
+  }
 }

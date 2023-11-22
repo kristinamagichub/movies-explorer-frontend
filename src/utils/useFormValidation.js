@@ -1,53 +1,55 @@
 import { useCallback, useState } from "react";
 
-
 export default function useFormValidation() {
+  const [values, setValues] = useState({});
+  const [errors, setErrors] = useState({});
+  const [isValid, setIsValid] = useState(false); //for button
+  const [isInputValid, setIsInputValid] = useState({}); //for check validity of inputs
 
-    const [values, setValues] = useState({})
-    const [errors, setErrors] = useState({})
-    const [isValid, setIsValid] = useState(false)   //for button
-    const [isInputValid, setIsInputValid] = useState({})  //for check validity of inputs
+  function handleChange(evt) {
+    const name = evt.target.name;
+    const value = evt.target.value;
 
+    const validationMessage = evt.target.validationMessage;
+    const valid = evt.target.validity.valid;
+    const form = evt.target.form;
 
+    setValues((oldValues) => {
+      return { ...oldValues, [name]: value };
+    });
 
-    function handleChange(evt) {
+    setErrors((oldErrors) => {
+      return { ...oldErrors, [name]: validationMessage };
+    });
 
-        const name = evt.target.name
-        const value = evt.target.value
+    setIsInputValid((oldIsInputValid) => {
+      return { ...oldIsInputValid, [name]: valid };
+    });
 
-        const validationMessage = evt.target.validationMessage
-        const valid = evt.target.validity.valid
-        const form = evt.target.form
+    setIsValid(form.checkValidity());
+  }
 
-        setValues((oldValues) => {
-            return { ...oldValues, [name]: value }
-        })
+  function reset(data = {}) {
+    setValues(data);
+    setErrors({});
+    setIsValid(false);
+    setIsInputValid({});
+  }
 
-        setErrors((oldErrors) => {
-            return { ...oldErrors, [name]: validationMessage }
-        })
+  //ф которая будет устанавливать первоначальные данные
+  const setValue = useCallback((name, value) => {
+    setValues((oldValues) => {
+      return { ...oldValues, [name]: value };
+    });
+  }, []);
 
-        setIsInputValid((oldIsInputValid) => {
-            return { ...oldIsInputValid, [name]: valid }
-        })
-
-        setIsValid(form.checkValidity())
-    }
-
-    function reset(data = {}) {
-
-        setValues(data)
-        setErrors({})
-        setIsValid(false)
-        setIsInputValid({})
-    }
-
-    //ф которая будет устанавливать первоначальные данные
-    const setValue = useCallback((name, value) => {
-        setValues((oldValues) => {
-            return { ...oldValues, [name]: value }
-        })
-    }, [])
-
-    return { values, errors, isValid, isInputValid, handleChange, reset, setValue }
+  return {
+    values,
+    errors,
+    isValid,
+    isInputValid,
+    handleChange,
+    reset,
+    setValue,
+  };
 }

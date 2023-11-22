@@ -1,1 +1,0 @@
-export { AboutProject as default } from './AboutProject'; 

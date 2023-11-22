@@ -1,1 +1,1 @@
-export { MovieCard as default } from './MoviesCard';
+export { MovieCard as default } from "./MoviesCard";

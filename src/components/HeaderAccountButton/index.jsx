@@ -1,1 +1,0 @@
-export { HeaderAccountButton as default } from './HeaderAccountButton'; 
