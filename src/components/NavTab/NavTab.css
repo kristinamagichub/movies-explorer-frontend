@@ -21,7 +21,7 @@
 
 .nav-tab__link:hover {
   transform: translate(0, -1px) scale(1.01);
-  background: #2be080;
+  background: #2BE080;
 }
 
 @media screen and (max-width: 1023px) {

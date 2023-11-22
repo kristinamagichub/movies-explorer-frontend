@@ -12,12 +12,12 @@ export const UserContext = createContext(null);
 function Main() {
   return (
     <main>
-      <Promo className="container" />
-      <AboutProject className="container" />
-      <Techs className="container" />
-      <AboutMe className="container" />
-      <Portfolio className="container" />
-      <ScrollToTop className="container" />
+      <Promo />
+      <AboutProject />
+      <Techs />
+      <AboutMe />
+      <Portfolio />
+      <ScrollToTop />
     </main>
   );
 }

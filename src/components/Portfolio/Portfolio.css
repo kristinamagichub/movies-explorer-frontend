@@ -11,7 +11,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 20px;
-  color: #a0a0a0;
+  color: #A0A0A0;
 }
 
 .portfolio__list {
@@ -27,7 +27,7 @@
 }
 
 .portfolio__link:hover .portfolio__description {
-  color: #a0a0a0;
+  color: #A0A0A0;
 }
 
 .portfolio__link:hover .portfolio__image {

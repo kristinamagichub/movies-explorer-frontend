@@ -10,7 +10,7 @@
 }
 
 .search__form-error {
-  color: red;
+  color: #FF004D;
 }
 
 .search__form {
@@ -29,7 +29,7 @@
   font-size: 28px;
   line-height: 20px;
   border: none;
-  color: #a0a0a0;
+  color: #A0A0A0;
   background: #fff;
 }
 
@@ -39,27 +39,27 @@
 }
 
 input::-webkit-input-placeholder {
-  color: #a0a0a0;
+  color: #A0A0A0;
 }
 
 input:-moz-placeholder {
-  color: #a0a0a0;
+  color: #A0A0A0;
 }
 
 input::-moz-placeholder {
-  color: #a0a0a0;
+  color: #A0A0A0;
 }
 
 input:-ms-input-placeholder {
-  color: #a0a0a0;
+  color: #A0A0A0;
 }
 
 .search__input_type_error {
-  border-bottom-color: #ff3055;
+  border-bottom-color: #FF004D;
 }
 
 .search__input_type_error:focus {
-  border-bottom-color: #ff3055;
+  border-bottom-color: #FF004D;
 }
 
 .search__input-error {
@@ -70,7 +70,7 @@ input:-ms-input-placeholder {
   font-weight: 400;
   font-size: 10px;
   line-height: 12px;
-  color: #ff3055;
+  color: #FF004D;
 }
 
 .search__input-error_active {
@@ -89,7 +89,7 @@ input:-ms-input-placeholder {
   border: none;
   border-radius: 48px;
   cursor: pointer;
-  background: #3456f3;
+  background: #3456F3;
   color: #fff;
 }
 

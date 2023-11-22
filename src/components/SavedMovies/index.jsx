@@ -16,7 +16,7 @@ function SavedMovies({ loggedIn, onDeleteCard, savedMovies }) {
     setShortFilm(!isShortMovies);
   }
 
-  function getsearchFilterMovie(request) {
+  function getSearchFilterMovie(request) {
     setSearchRequest(request);
   }
 
@@ -40,7 +40,7 @@ function SavedMovies({ loggedIn, onDeleteCard, savedMovies }) {
       <Header loggedIn={loggedIn} />
       <SearchForm
         onFilterMovies={getShortMovieToggleCheck}
-        getsearchFilterMovie={getsearchFilterMovie}
+        getSearchFilterMovie={getSearchFilterMovie}
       />
       <MoviesCardList
         cards={isFilteredMovies}

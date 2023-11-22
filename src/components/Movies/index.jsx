@@ -59,7 +59,7 @@ function Movies({ loggedIn, handleLikeFilm, savedMovies, onDeleteCard }) {
     }
   }, []);
 
-  function getsearchFilterMovie(query) {
+  function getSearchFilterMovie(query) {
     localStorage.setItem("moviesQuery", query);
     localStorage.setItem("shortMovies", isShortMovies);
 
@@ -98,7 +98,7 @@ function Movies({ loggedIn, handleLikeFilm, savedMovies, onDeleteCard }) {
       <Header loggedIn={loggedIn} />
       <SearchForm
         isShortMovies={isShortMovies}
-        getsearchFilterMovie={getsearchFilterMovie}
+        getSearchFilterMovie={getSearchFilterMovie}
         onFilterMovies={getShortMovieToggleCheck}
       />
       <MoviesCardList

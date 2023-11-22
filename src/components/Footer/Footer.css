@@ -13,7 +13,7 @@
   line-height: 16px;
   text-align: center;
   border-bottom: 1px solid #e8e8e8;
-  color: #a0a0a0;
+  color: #A0A0A0;
 }
 
 .footer__container {
@@ -48,7 +48,7 @@
 }
 
 .footer__link:hover {
-  color: #a0a0a0;
+  color: #A0A0A0;
 }
 
 @media screen and (max-width: 1023px) {
@@ -79,7 +79,7 @@
     margin-top: 18px;
     font-size: 12px;
     line-height: 15px;
-    color: #a0a0a0;
+    color: #A0A0A0;
     order: 10;
   }
 

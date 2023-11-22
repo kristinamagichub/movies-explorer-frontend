@@ -38,7 +38,7 @@
 }
 
 .filter__checkbox:checked {
-  background: #2be080;
+  background: #2BE080;
 }
 
 .filter__checkbox:checked::after {

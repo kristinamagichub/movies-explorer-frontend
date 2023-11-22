@@ -61,7 +61,7 @@
     font-size: 18px;
     line-height: 22px;
     text-align: center;
-    color: #000000;
+    color: #000;
     width: max-content;
     border-bottom: 2px solid transparent;
   }
@@ -96,7 +96,7 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 18px;
-    color: black;
+    color: #000;
   }
 
   .navigation__account-button:hover {

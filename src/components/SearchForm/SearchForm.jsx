@@ -6,7 +6,7 @@ import "./SearchForm.css";
 
 export function SearchForm({
   isShortMovies,
-  getsearchFilterMovie,
+  getSearchFilterMovie,
   onFilterMovies,
 }) {
   const [request, setRequest] = useState("");
@@ -29,7 +29,7 @@ export function SearchForm({
       setisQueryError(true);
     } else {
       setisQueryError(false);
-      getsearchFilterMovie(request);
+      getSearchFilterMovie(request);
     }
   }
 

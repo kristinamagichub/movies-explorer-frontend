@@ -28,7 +28,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
-  color: #ffffff;
+  color: #fff;
   margin-left: 12px;
 }
 
@@ -46,15 +46,13 @@
 }
 
 .header__button {
-  color: #000000;
+  color: #000;
   text-align: right;
-  font-family: Inter;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: 16px;
   min-height: 32px;
-  letter-spacing: 0.03em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +75,7 @@
 
 .header__button-green {
   color: #000;
-  background-color: #3ddc84;
+  background-color: #2BE080;
   min-width: 76px;
   border-radius: 3px;
 }
@@ -109,7 +107,7 @@
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
-  color: #000000;
+  color: #000;
 }
 
 .header__account-image-wrapper {
